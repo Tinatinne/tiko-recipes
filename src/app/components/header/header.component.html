@@ -1,0 +1,94 @@
+<!-- <nav
+  class="fixed z-50 flex justify-between items-center w-full top-0 start-0 border-b border-gray-200 bg-white shadow-lg p-2">
+  <a routerLink="/"><img src="../../assets/images/logo.jpg" class="h-14" alt=""></a>
+  <ul
+    class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+    <li>
+      <a routerLink="">Home</a>
+    </li>
+    <li>
+      <a routerLink="/pricing">pricing</a>
+    </li>
+    <li>
+      <a routerLink="/about-us">About us</a>
+    </li>
+    <li>
+      <a routerLink="/contact">Contact</a>
+    </li>
+  </ul>
+
+  <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse gap-4">
+    <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+      <mat-icon [matBadge]="favoritesAmount" matBadgeColor="warn">favorite</mat-icon>
+    </button>
+
+    <button *ngIf="!isLoggedIn" (click)="openLoginPopup()"
+      class="text-white bg-yellow-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center">
+      Log In
+    </button>
+
+    <button
+    class="text-white bg-yellow-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
+      *ngIf="isLoggedIn" (click)="logOut()">log out</button>
+  </div>
+</nav> -->
+
+<nav
+  class="fixed z-50 flex justify-between items-center w-full top-0 start-0 border-b border-gray-200 bg-white shadow-lg p-2">
+  <a routerLink="/"><img src="../../assets/images/logo.jpg" class="h-14" alt=""></a>
+
+
+  <button class="md:hidden order-last" (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+
+  <ul
+    class="hidden md:flex flex-col md:flex-row md:space-x-8 rtl:space-x-reverse font-medium border border-gray-100 rounded-lg bg-gray-50 md:mt-0 md:border-0 md:bg-white">
+    <li>
+      <a routerLink="">Home</a>
+    </li>
+    <li>
+      <a routerLink="/pricing">pricing</a>
+    </li>
+    <li>
+      <a routerLink="/about-us">About us</a>
+    </li>
+    <li>
+      <a routerLink="/contact">Contact</a>
+    </li>
+  </ul>
+
+  <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse gap-4">
+    <button *ngIf="isLoggedIn" [routerLink]="favoritesAmount ? '/favorites': null" mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+      <mat-icon [matBadge]="favoritesAmount" [matBadgeHidden]="!favoritesAmount" matBadgeColor="warn">favorite</mat-icon>
+    </button>
+
+    <button *ngIf="!isLoggedIn" (click)="openLoginPopup()"
+      class="text-white bg-yellow-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center">
+      Log In
+    </button>
+
+    <button
+    class="text-white bg-yellow-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
+      *ngIf="isLoggedIn" (click)="logOut()">log out</button>
+  </div>
+</nav>
+
+
+<div *ngIf="menuOpen" class="md:hidden bg-white shadow-lg p-4 absolute w-full top-16 left-0 z-50">
+  <ul class="flex flex-col space-y-4">
+    <li>
+      <a routerLink="">Home</a>
+    </li>
+    <li>
+      <a routerLink="/pricing">pricing</a>
+    </li>
+    <li>
+      <a routerLink="/about-us">About us</a>
+    </li>
+    <li>
+      <a routerLink="/contact">Contact</a>
+    </li>
+  </ul>
+</div>

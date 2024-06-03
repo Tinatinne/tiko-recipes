@@ -1,0 +1,5 @@
+<div *ngIf="recipe">
+    <img [src]="recipe.image">
+    <p>recipe-card works!</p>
+    <a [routerLink]="['recipes-details', recipe.id]">See Details</a>
+</div>

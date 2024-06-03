@@ -1,0 +1,63 @@
+<div class="container mx-auto p-6" *ngIf="productData">
+  <div class="bg-white p-6 rounded-lg shadow-lg">
+    <h1 class="text-3xl font-bold mb-4 text-center text-gray-800">
+      {{ productData.name }}
+    </h1>
+
+    <div class="flex justify-center">
+      <img class="w-full md:w-1/2 lg:w-1/3 mx-auto my-4 rounded-lg shadow-md" [src]="productData.image"
+        alt="Product Image" />
+    </div>
+    <div class="my-4 p-2">
+      <div class="flex items-center">
+        <div class="flex items-center mr-7">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="ml-1 lg:text-xl">Preparing Time: {{productData.prepTimeMinutes}}</span>
+        </div>
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="ml-1 lg:text-xl">Coocking Time: {{productData.cookTimeMinutes}}</span>
+        </div>
+      </div>
+      <p class="text-black font-medium pt-4">Cuisine: {{productData.cuisine}}</p>
+
+      <div
+        class="mt-4 mr-4 w-fit cursor-pointer bg-green-400 text-white rounded-full pt-1 pb-1 pl-4 pr-5 text-xs uppercase">
+        <span>{{productData.difficulty}}</span>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-semibold mb-4 text-gray-700">Ingredients</h2>
+    <ul class="list-disc list-inside mb-6 pl-6">
+
+      <li *ngFor="let ingr of productData.ingredients" class="mb-2 text-gray-700">{{ingr}}</li>
+
+    </ul>
+
+    <h2 class="text-2xl font-semibold mb-4 text-gray-700">Instructions</h2>
+    <ol class="list-decimal list-inside mb-6 pl-6">
+      <li class="mb-2" *ngFor="let inst of productData.instructions">{{inst}}.</li>
+      <!-- Add more instructions here -->
+    </ol>
+
+    <p class="text-gray-700 mb-6">Serve the cake with your favorite frosting or enjoy it plain!</p>
+
+    <div class="text-center">
+      <button (click)="printRecipe()"
+        class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition duration-300 mr-5">
+        Print Recipe
+      </button>
+
+      <button *ngIf="isLoggedIn" (click)="toggleFavorites()"
+        class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition duration-300">
+        {{ recipeIsInFavorites ? ' Remove from Favorites' : 'Add To Favorites'}}
+      </button>
+    </div>
+  </div>
+</div>

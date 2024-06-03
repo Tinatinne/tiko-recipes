@@ -1,0 +1,32 @@
+<div class="w-96 p-8">
+  <h2>Login</h2>
+  <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="logIn()">
+    <mat-form-field class="w-full mb-5">
+      <mat-label>User Name</mat-label>
+      <input
+        type="string"
+        matInput
+        formControlName="username"
+        placeholder="Ex. pat@example.com"
+      />
+      <mat-error *ngIf="loginForm.get('username')!.hasError('required')">
+        User Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="w-full mb-5">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        formControlName="password"
+        placeholder="**********"
+      />
+      <mat-error *ngIf="loginForm.get('password')!.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <button mat-button mat-dialog-close class="mr-3">Cancel</button>
+    <button type="submit" mat-raised-button color="primary">Log In</button>
+  </form>
+</div>

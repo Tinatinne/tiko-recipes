@@ -1,0 +1,7 @@
+<div class="w-96 p-8">
+    <p>You are buying <strong>{{userSubscriptionOption}}</strong> plan for <strong>${{ userSubscriptionOptionPrice }}</strong></p>
+    <p>are you sure?</p>
+
+    <button mat-raised-button mat-dialog-close color="danger" class="mr-3 bg-yellow-500">cancel</button>
+    <button mat-raised-button color="primary" (click)="confirm()">Confirm</button>
+</div>

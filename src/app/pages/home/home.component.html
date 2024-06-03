@@ -1,0 +1,21 @@
+<div
+  class="flex flex-col md:grid md:grid-cols-4 gap-6 mt-16 px-5 mb-10"
+  *ngIf="recipeTags?.length"
+>
+  <div
+    [routerLink]="['/categories', tag.title]"
+    class="relative overflow-hidden py-28 bg-gradient-to-r from-yellow-500 to-red-500 text-white text-xl rounded font-medium group"
+    *ngFor="let tag of recipeTags"
+  >
+    <img class="absolute inset-0" [src]="tag.image" [alt]="tag.title" />
+
+    <div
+      class="absolute inset-0 bg-white opacity-40 group-hover:opacity-10 transition-opacity"
+    ></div>
+    <p
+      class="cursor-pointer absolute z-20 inset-0 flex items-center justify-center text-2xl text-center text-black font-roboto font-medium transition-colors"
+    >
+      {{ tag.title }}
+    </p>
+  </div>
+</div>
